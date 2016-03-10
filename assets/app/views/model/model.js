@@ -18,4 +18,6 @@ angular.module('app.views.model', [])
     var modelCtl = this;
     AppFct.title = 'Model Generator';
 
+      modelCtl.mimetypes = ['application/xml']
+
   });

@@ -1,1 +1,29 @@
-h1 Model Generator
+.container
+    h3 Model Generator
+    .row
+        .col.s12.m5
+            .card-panel.white
+                .drop-box(id='dropbox', name='dropbox', ngf-drop='', ngf-select='', ng-model='msValue', ngf-drag-over-class="'dragover'", ngf-multiple='false', accept='{{modelCtl.mimetypes}}', ngf-pattern="'{{modelCtl.mimetypes}}'")
+                    .row.text-muted(ng-if='!msValue.size')
+                        .col-md-3.icon
+                            i.fa.fa-upload.fa-3x
+                        |
+                        .col-md-9.no-file
+                            | Glisser-d&eacute;poser un fichier dans cette zone
+                    |
+                    .row(ng-if='msValue.size')
+                        .col-md-3.icon
+                            i.fa.fa-3x(class='{{icon}}')
+                        |
+                        .col-md-9.file
+                            b {{msValue.name}}
+                            br
+                            |                     taille : {{msValue.size | size}}
+                            br
+                            |                     derni&egrave;re modification : {{msValue.lastModified | date:&apos;dd/MM/yyyy &agrave; hh:mm&apos;}}
+                |
+                .row
+                    .col-md-12
+                        .btn.btn-default.pull-right(ngf-select='', ng-model='msValue', ngf-multiple='false') Parcourir
+                |
+                div(ngf-no-file-drop='') Glissez d&eacute;pos&eacute; n&apos;est pas compatible avec votre navigateur
